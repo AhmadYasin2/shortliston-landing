@@ -17,32 +17,35 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "ShortlistOn - Get Seen by Employers",
+  metadataBase: new URL("https://shortliston.com"),
+  title: "ShortlistOn – Get Seen by Employers",
   description:
     "Skip the endless apply-wait-ghost loop. ShortlistOn helps serious candidates get noticed by employers.",
-  icons: {
-    icon: [
-      { url: "/favicon.png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+  openGraph: {
+    type: "website",
+    url: "https://shortliston.com/",
+    siteName: "ShortlistOn",
+    title: "Get Seen by Employers – ShortlistOn",
+    description:
+      "Skip the endless apply-wait-ghost loop. ShortlistOn helps serious candidates get noticed by employers.",
+    images: [
       {
-        url: "/android-chrome-192x192.png",
-        sizes: "192x192",
-        type: "image/png",
-      },
-      {
-        url: "/android-chrome-512x512.png",
-        sizes: "512x512",
-        type: "image/png",
+        url: "/og-shortliston.png", // relative is fine because metadataBase makes it absolute
+        width: 1200,
+        height: 630,
+        alt: "ShortlistOn – Get Seen by Employers",
       },
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
-    other: [
-      { rel: "mask-icon", url: "/safari-pinned-tab.svg", color: "#0ea5e9" },
-    ],
+    locale: "en_US",
   },
-  manifest: "/site.webmanifest", // optional if you have a PWA manifest
-  themeColor: "#0ea5e9",
+  twitter: {
+    card: "summary_large_image",
+    title: "Get Seen by Employers – ShortlistOn",
+    description:
+      "Skip the endless apply-wait-ghost loop. ShortlistOn helps serious candidates get noticed by employers.",
+    images: ["/og-shortliston.png"],
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

@@ -62,12 +62,12 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <Link href="/" aria-label="Home">
-            <span className="font-bold font-lexend text-xl">
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Shortlist
+              <span className="font-bold font-lexend text-xl">
+                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  Shortlist
+                </span>
+                <span className="text-foreground">On.</span>
               </span>
-              <span className="text-foreground">On.</span>
-            </span>
             </Link>
           </div>
           <Link href="/signup" aria-label="Sign up">
@@ -192,23 +192,6 @@ export default function LandingPage() {
       {/* Step 2 */}
       <section className="min-h-screen flex items-center px-4 bg-gradient-to-r from-secondary/5 via-transparent to-primary/5 scroll-animate">
         <div className="container mx-auto max-w-6xl grid lg:grid-cols-2 gap-12 items-center">
-          <Card className="glass-card p-8">
-            <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full"></div>
-                  <div>
-                    <div className="h-3 bg-muted rounded w-24 mb-2"></div>
-                    <div className="h-2 bg-muted rounded w-16"></div>
-                  </div>
-                </div>
-                <Badge className="bg-green-100 text-green-800">Found You</Badge>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Recruiters are searching for profiles like yours.
-              </p>
-            </div>
-          </Card>
           <div>
             <div className="flex items-center mb-6">
               <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center mr-4">
@@ -242,6 +225,24 @@ export default function LandingPage() {
               ))}
             </div>
           </div>
+
+          <Card className="glass-card p-8">
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full"></div>
+                  <div>
+                    <div className="h-3 bg-muted rounded w-24 mb-2"></div>
+                    <div className="h-2 bg-muted rounded w-16"></div>
+                  </div>
+                </div>
+                <Badge className="bg-green-100 text-green-800">Found You</Badge>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Recruiters are searching for profiles like yours.
+              </p>
+            </div>
+          </Card>
         </div>
       </section>
 
@@ -328,9 +329,7 @@ export default function LandingPage() {
 
             <div>
               <h4 className="font-bold font-serif mb-4"></h4>
-              <ul className="space-y-2 text-primary-foreground/80">
-
-              </ul>
+              <ul className="space-y-2 text-primary-foreground/80"></ul>
             </div>
 
             <div>

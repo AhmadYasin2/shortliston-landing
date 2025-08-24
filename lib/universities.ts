@@ -1,4 +1,4 @@
-const universityData = {
+export const universityData = {
   psut: {
     name: "Princess Sumaya University for Technology",
     logo: "/PSUT_Logo.png",

@@ -59,7 +59,7 @@ const universityData = {
   },
     zaytoona: {
     name: "Al-Zaytoonah University of Jordan",
-    logo: "/zaytoonah_logo.png",
+    logo: "/zaytoona_logo.png",
     endorsement:
       "HTU Career Advising & Professional Development is proud to offer our students priority access to ShortlistOn's innovative career platform.",
     primaryColor: "#0c9444",

@@ -57,6 +57,51 @@ const universityData = {
       "Other",
     ],
   },
+    zaytoona: {
+    name: "Al-Zaytoonah University of Jordan",
+    logo: "/zaytoonah_logo.png",
+    endorsement:
+      "HTU Career Advising & Professional Development is proud to offer our students priority access to ShortlistOn's innovative career platform.",
+    primaryColor: "#0c9444",
+    programs: [
+      "Engineering",
+      "Computer Science",
+      "Management",
+      "Science",
+      "Architecture",
+      "Other",
+    ],
+  },
+    meu: {
+    name: "Middle East University",
+    logo: "/meu_logo.png",
+    endorsement:
+      "HTU Career Advising & Professional Development is proud to offer our students priority access to ShortlistOn's innovative career platform.",
+    primaryColor: "#931d24",
+    programs: [
+      "Engineering",
+      "Computer Science",
+      "Management",
+      "Science",
+      "Architecture",
+      "Other",
+    ],
+  },
+    asu: {
+    name: "Applied Science Private University",
+    logo: "/asu.png",
+    endorsement:
+      "HTU Career Advising & Professional Development is proud to offer our students priority access to ShortlistOn's innovative career platform.",
+    primaryColor: "#34548c",
+    programs: [
+      "Engineering",
+      "Computer Science",
+      "Management",
+      "Science",
+      "Architecture",
+      "Other",
+    ],
+  },
 } as const;
 
 type UniversityKey = keyof typeof universityData;

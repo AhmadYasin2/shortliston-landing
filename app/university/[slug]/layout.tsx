@@ -15,7 +15,7 @@ export async function generateMetadata(
   const base = process.env.NEXT_PUBLIC_SITE_URL || "https://shortliston.com";
   const title = `${uni.name} – Priority Signup | ShortlistOn`;
   const description = `Priority access for ${uni.name} students via the ShortlistOn partnership. Build your profile and get discovered by employers.`;
-  const ogImage = `/og/${slug}.jpg`; // put per-university images in /public/og/<slug>.jpg
+  const ogImage = `/og/${slug}.png`; // put per-university images in /public/og/<slug>.jpg
 
   return {
     metadataBase: new URL(base),

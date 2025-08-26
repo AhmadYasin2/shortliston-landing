@@ -30,7 +30,7 @@ export const universityData = {
       "Other",
     ],
   },
-    zaytoona: {
+  zaytoona: {
     name: "Al-Zaytoonah University of Jordan",
     logo: "/zaytoona_logo.png",
     endorsement:
@@ -45,7 +45,7 @@ export const universityData = {
       "Other",
     ],
   },
-    meu: {
+  meu: {
     name: "Middle East University",
     logo: "/meu_logo.png",
     endorsement:
@@ -60,12 +60,27 @@ export const universityData = {
       "Other",
     ],
   },
-    asu: {
+  asu: {
     name: "Applied Science Private University",
     logo: "/asu.png",
     endorsement:
       "HTU Career Advising & Professional Development is proud to offer our students priority access to ShortlistOn's innovative career platform.",
     primaryColor: "#34548c",
+    programs: [
+      "Engineering",
+      "Computer Science",
+      "Management",
+      "Science",
+      "Architecture",
+      "Other",
+    ],
+  },
+  gju: {
+    name: "German Jordanian University",
+    logo: "/gju.png",
+    endorsement:
+      "HTU Career Advising & Professional Development is proud to offer our students priority access to ShortlistOn's innovative career platform.",
+    primaryColor: "#f5aa05",
     programs: [
       "Engineering",
       "Computer Science",

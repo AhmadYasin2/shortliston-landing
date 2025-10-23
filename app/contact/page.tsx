@@ -18,6 +18,9 @@ import {
   Send,
   CheckCircle,
   Sparkles,
+  Linkedin,
+  Instagram,
+  Facebook,
 } from "lucide-react";
 
 export default function ContactPage() {
@@ -188,40 +191,6 @@ export default function ContactPage() {
               </div>
 
               {/* Social Links */}
-              <div className="pt-8 border-t border-border">
-                <h3 className="text-lg font-bold mb-4">Follow Us</h3>
-                <div className="flex gap-4">
-                  {[
-                    {
-                      name: "LinkedIn",
-                      url: "https://linkedin.com",
-                      icon: "🔗",
-                    },
-                    { name: "Twitter", url: "https://twitter.com", icon: "𝕏" },
-                    {
-                      name: "Instagram",
-                      url: "https://instagram.com",
-                      icon: "📸",
-                    },
-                    {
-                      name: "Facebook",
-                      url: "https://facebook.com",
-                      icon: "f",
-                    },
-                  ].map((social, i) => (
-                    <a
-                      key={i}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center hover:from-primary/40 hover:to-secondary/40 transition-all text-lg font-bold"
-                      title={social.name}
-                    >
-                      {social.icon}
-                    </a>
-                  ))}
-                </div>
-              </div>
             </div>
 
             {/* Right Column - Contact Form */}

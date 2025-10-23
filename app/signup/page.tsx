@@ -4,12 +4,19 @@ import type React from "react";
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Upload, CheckCircle, ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { Navbar } from "@/components/navbar";
 
 export default function SignUpPage() {
   const [formData, setFormData] = useState({
@@ -28,7 +35,8 @@ export default function SignUpPage() {
     const ok =
       file.type === "application/pdf" ||
       file.type === "application/msword" ||
-      file.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+      file.type ===
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
     if (ok) {
       setFormData((prev) => ({ ...prev, cvFile: file }));
     } else {
@@ -74,18 +82,20 @@ export default function SignUpPage() {
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
               <CheckCircle className="h-8 w-8 text-primary" />
             </div>
-            <CardTitle className="font-serif text-2xl">Thanks! You’re on the list.</CardTitle>
+            <CardTitle className="font-serif text-2xl">
+              Welcome to ShortlistOn!
+            </CardTitle>
             <CardDescription className="text-base">
-              We’ll create your profile at launch and notify you.
+              Your profile is live. Employers are already searching.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="bg-secondary/50 rounded-lg p-4 text-left">
-              <h4 className="font-semibold font-serif mb-2">What happens next?</h4>
+              <h4 className="font-semibold font-serif mb-2">What's next?</h4>
               <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Your profile will be prepped for launch day</li>
-                <li>• You’ll get launch updates and next steps</li>
-                <li>• No spam — just important notifications</li>
+                <li>• Your profile is live and searchable</li>
+                <li>• Employers can contact you directly</li>
+                <li>• Check your email for recruiter messages</li>
               </ul>
             </div>
             <Link href="/">
@@ -102,34 +112,19 @@ export default function SignUpPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-            <Link href="/" aria-label="Home">
-            <span className="font-bold font-lexend text-xl">
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Shortlist
-              </span>
-              <span className="text-foreground">On.</span>
-            </span>
-            </Link>
-          <Link href="/">
-            <Button variant="ghost" size="sm">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back
-            </Button>
-          </Link>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Sign Up Form */}
       <div className="py-12 px-4">
         <div className="container mx-auto max-w-2xl">
           <div className="text-center mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold font-sans mb-4">Sign up before launch</h1>
+            <h1 className="text-3xl md:text-4xl font-bold font-sans mb-4">
+              Create Your Profile
+            </h1>
             <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-              We’ll create your profile at launch and notify you. Uploading your CV helps auto-fill your
-              profile (skills, education, experience, projects) — or you can add these manually later.
+              Get discovered by top employers. Upload your CV to auto-fill your
+              profile (skills, education, experience, projects) — or you can add
+              these manually.
             </p>
           </div>
 
@@ -137,7 +132,8 @@ export default function SignUpPage() {
             <CardHeader>
               <CardTitle className="font-serif">Create Your Profile</CardTitle>
               <CardDescription>
-                We’ll only contact you about launch and your signup status. Your data stays private.
+                We'll notify you when employers contact you. Your data stays
+                private.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -150,7 +146,12 @@ export default function SignUpPage() {
                       type="text"
                       placeholder="Enter your full name"
                       value={formData.fullName}
-                      onChange={(e) => setFormData((prev) => ({ ...prev, fullName: e.target.value }))}
+                      onChange={(e) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          fullName: e.target.value,
+                        }))
+                      }
                       required
                     />
                   </div>
@@ -161,7 +162,12 @@ export default function SignUpPage() {
                       type="tel"
                       placeholder="+962 7X XXX XXXX"
                       value={formData.phone}
-                      onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
+                      onChange={(e) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          phone: e.target.value,
+                        }))
+                      }
                       required
                     />
                   </div>
@@ -174,11 +180,17 @@ export default function SignUpPage() {
                     type="email"
                     placeholder="your.email@example.com"
                     value={formData.email}
-                    onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
+                    onChange={(e) =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        email: e.target.value,
+                      }))
+                    }
                     required
                   />
                   <p className="text-xs text-muted-foreground">
-                    We’ll use this for launch updates and important notifications.
+                    We’ll use this for launch updates and important
+                    notifications.
                   </p>
                 </div>
 
@@ -198,27 +210,36 @@ export default function SignUpPage() {
                       <Upload className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
                       {formData.cvFile ? (
                         <div>
-                          <p className="font-medium text-primary">{formData.cvFile.name}</p>
-                          <p className="text-xs text-muted-foreground">Click to change file</p>
+                          <p className="font-medium text-primary">
+                            {formData.cvFile.name}
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            Click to change file
+                          </p>
                         </div>
                       ) : (
                         <div>
                           <p className="font-medium">Click to upload your CV</p>
-                          <p className="text-xs text-muted-foreground">PDF or DOC files only, max 15MB</p>
+                          <p className="text-xs text-muted-foreground">
+                            PDF or DOC files only, max 15MB
+                          </p>
                         </div>
                       )}
                     </label>
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    CV upload is just to speed up profile creation. You can edit details later.
+                    CV upload is just to speed up profile creation. You can edit
+                    details later.
                   </p>
                 </div>
 
                 <div className="bg-secondary/30 rounded-lg p-4">
-                  <h4 className="font-semibold font-serif mb-2">How we use your information:</h4>
+                  <h4 className="font-semibold font-serif mb-2">
+                    How we use your information:
+                  </h4>
                   <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Prepare your profile for launch day</li>
-                    <li>• Send you important launch updates</li>
+                    <li>• Create your searchable profile</li>
+                    <li>• Send you recruiter messages and opportunities</li>
                     <li>• No data sharing without your consent</li>
                   </ul>
                 </div>
@@ -227,14 +248,22 @@ export default function SignUpPage() {
                   <Checkbox
                     id="consent"
                     checked={formData.consent}
-                    onCheckedChange={(checked) => setFormData((prev) => ({ ...prev, consent: checked as boolean }))}
+                    onCheckedChange={(checked) =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        consent: checked as boolean,
+                      }))
+                    }
                     required
                   />
                   <div className="text-sm">
                     <label htmlFor="consent" className="cursor-pointer">
-                      I agree to receive communications about launch updates and understand my data will be processed
-                      according to the{" "}
-                      <Link href="/privacy" className="text-primary hover:underline">
+                      I agree to receive communications about opportunities and
+                      understand my data will be processed according to the{" "}
+                      <Link
+                        href="/privacy"
+                        className="text-primary hover:underline"
+                      >
                         Privacy Policy
                       </Link>
                       .
@@ -242,8 +271,12 @@ export default function SignUpPage() {
                   </div>
                 </div>
 
-                <Button type="submit" className="w-full text-lg py-6" disabled={!formData.consent || isSubmitting}>
-                  {isSubmitting ? "Submitting..." : "Sign up before launch"}
+                <Button
+                  type="submit"
+                  className="w-full text-lg py-6"
+                  disabled={!formData.consent || isSubmitting}
+                >
+                  {isSubmitting ? "Creating profile..." : "Create Profile"}
                 </Button>
               </form>
             </CardContent>

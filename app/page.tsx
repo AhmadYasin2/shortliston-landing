@@ -10,24 +10,22 @@ import {
   FileText,
   Target,
   Sparkles,
-  Facebook,
-  Instagram,
-  Linkedin,
 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import {
+  OrganizationSchema,
+  ProductSchema,
+} from "@/components/structured-data";
 
 export default function LandingPage() {
   const [isVisible, setIsVisible] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     setIsVisible(true);
-
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
 
     observerRef.current = new IntersectionObserver(
       (entries) => {
@@ -42,47 +40,16 @@ export default function LandingPage() {
       .querySelectorAll(".scroll-animate")
       .forEach((el) => observerRef.current?.observe(el));
 
-    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       observerRef.current?.disconnect();
     };
   }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-secondary/5">
-      {/* Header */}
-      <header
-        className={`glass-header sticky top-0 z-50 transition-all duration-500 ease-out ${
-          scrolled
-            ? "py-2 backdrop-blur-xl bg-background/80 shadow-lg"
-            : "py-4 backdrop-blur-sm bg-background/60"
-        }`}
-      >
-        <div className="container mx-auto px-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <Link href="/" aria-label="Home">
-              <span className="font-bold font-lexend text-xl">
-                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  Shortlist
-                </span>
-                <span className="text-foreground">On.</span>
-              </span>
-            </Link>
-          </div>
-          <Link href="/signup" aria-label="Sign up">
-            <Button
-              variant="outline"
-              size="lg"
-              className={`transition-all ${
-                scrolled ? "opacity-80" : "opacity-100"
-              }`}
-            >
-              Register Now
-            </Button>
-          </Link>
-        </div>
-      </header>
+      <OrganizationSchema />
+      <ProductSchema />
+      <Navbar />
 
       {/* Hero */}
       <section className="min-h-screen flex items-center px-2 relative scroll-animate">
@@ -101,17 +68,20 @@ export default function LandingPage() {
             Forget endless applications and randomness — you deserve better.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/signup">
+            <a
+              href="https://search.shortliston.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
                 size="lg"
                 className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-secondary"
               >
-                <Mail className="mr-2 h-5 w-5" /> Sign up Pre-launch
+                <Mail className="mr-2 h-5 w-5" /> Get Started Now
               </Button>
-            </Link>
+            </a>
             <p className="text-sm text-muted-foreground">
-              Early signups get profiles auto-created at launch + an exclusive
-              trial month for free.
+              Join hundreds of candidates getting discovered by top employers.
             </p>
           </div>
         </div>
@@ -307,79 +277,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-r from-primary to-secondary text-primary-foreground py-12 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-primary-foreground/20 rounded-lg flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-sm">
-                    S
-                  </span>
-                </div>
-                <span className="font-bold text-xl font-sans">
-                  ShortlistOn.
-                </span>
-              </div>
-              <p className="text-primary-foreground/80 mb-4 max-w-md">
-                Connecting serious candidates with employers who actually want
-                to hire.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-bold font-serif mb-4"></h4>
-              <ul className="space-y-2 text-primary-foreground/80"></ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold font-serif mb-4">Follow</h4>
-              <ul className="space-y-2 text-primary-foreground/80">
-                <li>
-                  <a
-                    href="https://instagram.com/shortlistonai"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 hover:text-primary-foreground transition-colors"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="h-5 w-5" />
-                    Instagram
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.facebook.com/61571011697596"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 hover:text-primary-foreground transition-colors"
-                    aria-label="Facebook"
-                  >
-                    <Facebook className="h-5 w-5" />
-                    Facebook
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/company/shortliston"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 hover:text-primary-foreground transition-colors"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin className="h-5 w-5" />
-                    LinkedIn
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-primary-foreground/60">
-            <p>&copy; 2025 ShortlistOn. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
